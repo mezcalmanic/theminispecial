@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Crossword Puzzle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 50px);
+            grid-template-rows: repeat(5, 50px);
+            gap: 2px;
+            justify-content: center;
+            margin: 20px auto;
+        }
+
+        .cell {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 18px;
+        }
+
+        .cell[contenteditable="true"] {
+            cursor: text;
+        }
+
+        .cell.black {
+            background-color: #000;
+        }
+
+        .clues {
+            display: flex;
+            justify-content: space-between;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .clues-section {
+            text-align: left;
+        }
+
+        .clue {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customizable Crossword Puzzle</h1>
+        <div class="grid">
+            <div class="cell black"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell" contenteditable="true"></div>
+            <div class="cell black"></div>
+        </div>
+
+        <div class="clues">
+            <div class="clues-section">
+                <h3>Across</h3>
+                <div class="clue">1A: "That's my ___!"</div>
+                <div class="clue">4A: "Jay who hosted 'The Tonight Show'"</div>
+            </div>
+            <div class="clues-section">
+                <h3>Down</h3>
+                <div class="clue">1D: "Game with a tower that topples"</div>
+                <div class="clue">2D: "Green-skinned pear variety"</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Add interactivity or validation logic
+        const cells = document.querySelectorAll('.cell[contenteditable="true"]');
+        cells.forEach(cell => {
+            cell.addEventListener('input', () => {
+                if (cell.textContent.length > 1) {
+                    cell.textContent = cell.textContent[0]; // Limit to one character
+                }
+            });
+        });
+    </script>
+</body>
+</html>
